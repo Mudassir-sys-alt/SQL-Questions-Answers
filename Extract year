@@ -1,0 +1,18 @@
+Q3:You have been asked to count the number of employees hired each year and save this value as Employees_count. The report should only consider employees who are currently employed (i.e., those holding current jobs).
+The result should include the columns Year and Employees_count.
+The result should be ordered -
+by Employees_count in descending order to highlight the years with the highest hiring, and
+by Year in ascending order to maintain chronological order within ties.
+
+Ans:
+
+SELECT 
+    YEAR(hire_date) AS 'Year', 
+    COUNT(employee_id) AS 'Employees_count'
+FROM 
+    employees
+GROUP BY 
+    YEAR(hire_date)
+ORDER BY 
+    Employees_count DESC, 
+    Year ASC;
